@@ -66,13 +66,13 @@ GEM
     database_cleaner (1.7.0)
     diff-lcs (1.3)
     erubi (1.9.0)
-    factory_bot (4.11.1)
-      activesupport (>= 3.0.0)
-    factory_bot_rails (4.11.1)
-      factory_bot (~> 4.11.1)
-      railties (>= 3.0.0)
-    faker (1.9.6)
-      i18n (>= 0.7)
+    factory_bot (5.1.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.0)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
+    faker (2.4.0)
+      i18n (~> 1.6.0)
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -205,8 +205,8 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   database_cleaner (~> 1.6, >= 1.6.2)
-  factory_bot_rails (~> 4.8, >= 4.8.2)
-  faker (~> 1.8, >= 1.8.7)
+  factory_bot_rails
+  faker
   graphiql-rails
   graphql (~> 1.9)
   listen (>= 3.0.5, < 3.2)
@@ -223,7 +223,6 @@ DEPENDENCIES
   shoulda-matchers (~> 3.1, >= 3.1.2)
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
 
 RUBY VERSION
    ruby 2.5.1p57
