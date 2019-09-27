@@ -1,0 +1,50 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'bin/*'
+  TargetRubyVersion: 2.6
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/ClassLength:
+  Max: 160
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/AbcSize:
+  Max: 80
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - db/migrate/**/*
+    - config/environments/**/*
+    - config/routes.rb
+    - lib/tasks/**/*
+
+Style/BlockDelimiters:
+  Exclude:
+    - spec/**/*
+    - db/migrate/**/*
+
+Metrics/CyclomaticComplexity:
+  Max: 18
+
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"

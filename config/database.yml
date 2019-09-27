@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: tsui_development
+test:
+  <<: *default
+  database: tsui_test
+production:
+  <<: *default
+  database: tsui_production
+  username: tsui
+  password: <%= ENV['TSUI_DATABASE_PASSWORD'] %>
