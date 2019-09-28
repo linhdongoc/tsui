@@ -19,8 +19,8 @@ end
 
 2.times do
   User.create(
-          name: Faker::Name.unique.name,
-          email: Faker::Internet.email
+      name: Faker::Name.unique.name,
+      email: Faker::Internet.email
   )
 end
 
@@ -29,7 +29,7 @@ users = User.all
 users.each do |user|
   3.times do
     user.books.create(
-                  title: Faker::Lorem.word
+        title: Faker::Lorem.word
     )
   end
 end

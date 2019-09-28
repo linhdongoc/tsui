@@ -12,5 +12,3 @@ test:
 production:
   <<: *default
   database: tsui_production
-  username: tsui
-  password: <%= ENV['TSUI_DATABASE_PASSWORD'] %>

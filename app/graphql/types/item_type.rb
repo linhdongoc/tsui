@@ -1,8 +1,7 @@
-Types::ItemType = GraphQL::ObjectType.define do
-  name 'Item'
-  description 'Type definition for items'
-
-  field :id, !types.ID
-  field :name, !types.String
-  field :done, types.Boolean
+module Types
+  class ItemType < Types::BaseObject
+    field :id, ID, null: false
+    field :name, String, null: false
+    field :done, Boolean, null: true
+  end
 end

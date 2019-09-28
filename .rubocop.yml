@@ -47,4 +47,4 @@ Style/ClassAndModuleChildren:
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
-    - "spec/**/*"
+    - spec/**/*
