@@ -10,6 +10,9 @@ gem 'puma',                                           '~> 3.12'
 gem 'rack-cors'
 gem 'rails',                                          '~> 6.0'
 gem 'graphql',                                        '~> 1.9'
+gem 'redis',                                          '~> 4.1', '>= 4.1.3'
+gem 'bcrypt',                                         '~> 3.1', '>= 3.1.13'
+gem 'jwt_sessions',                                   '~> 2.4', '>= 2.4.3'
 
 group :development, :test do
   gem 'byebug'
