@@ -11,9 +11,8 @@ class SigninController < ApplicationController
                           value: tokens[:access],
                           httponly: true,
                           secure: Rails.env.production?)
-      render json: { crsf: tokens[:crsf] }
+      render json: { csrf: tokens[:csrf] }
     else
-      #render json: "Invalid email or password", status: :unauthorized
       not_authorized
     end
   end
