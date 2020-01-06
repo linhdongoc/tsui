@@ -1,11 +1,11 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      before_action :authorize_access_request!, except: [:show, :index]
+      before_action :authorize_access_request!
       before_action :set_book, only: [:show, :update, :destroy]
 
       def index
-        @books = Book.all
+        @books = current_user.books.all
         render json: @books
       end
 
@@ -14,7 +14,7 @@ module Api
       end
 
       def create
-        @book = Book.new(book_params)
+        @book = current_user.books.build(book_params)
         if @book.save
           render json: @book, status: :created
         else
@@ -37,11 +37,11 @@ module Api
       private
 
       def set_book
-        @book = Book.find(params[:id])
+        @book = current_user.books.find(params[:id])
       end
 
       def book_params
-        params.require(:book).permit(:title, user: current_user)
+        params.require(:book).permit(:title)
       end
     end
   end

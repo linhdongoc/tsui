@@ -5,7 +5,7 @@ module Api
       before_action :set_todo_list, only: [:show, :update, :destroy]
 
       def index
-        @todo_lists = current_user.todo_lists.all
+        @todo_lists = TodoList.all
         render json: @todo_lists
       end
 
@@ -14,7 +14,7 @@ module Api
       end
 
       def create
-        @todo_list = current_user.todo_lists.build(todo_list_params)
+        @todo_list = TodoList.new(todo_list_params)
         if @todo_list.save
           render json: @todo_list, status: :created
         else
@@ -37,11 +37,11 @@ module Api
       private
 
       def set_todo_list
-        @todo_list = current_user.todo_lists.find(params[:id])
+        @todo_list = TodoList.find(params[:id])
       end
 
       def todo_list_params
-        params.require(:todo_list).permit(:title)
+        params.require(:todo_list).permit(:title, item_ids: [])
       end
     end
   end

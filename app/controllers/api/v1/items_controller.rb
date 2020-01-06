@@ -5,7 +5,7 @@ module Api
       before_action :set_item, only: [:show, :update, :destroy]
 
       def index
-        @items = current_user.items.all
+        @items = Item.all
         render json: @items
       end
 
@@ -14,7 +14,7 @@ module Api
       end
 
       def create
-        @item = current_user.items.build(item_params)
+        @item = Item.new(item_params)
         if @item.save
           render json: @item, status: :created
         else
@@ -37,7 +37,7 @@ module Api
       private
 
       def set_item
-        @item = current_user.items.find(params[:id])
+        @item = Item.find(params[:id])
       end
 
       def item_params

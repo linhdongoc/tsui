@@ -4,11 +4,6 @@ Rails.application.routes.draw do
   end
   post "graphql", to: "graphql#execute"
 
-  #post "refresh", to: "refresh#create"
-  #post "signin", to: "signin#create"
-  #post "signup", to: "signup#create"
-  #delete "signin", to: "signin#destroy"
-
   post "refresh", controller: :refresh, action: :create
   post "signin", controller: :signin, action: :create
   post "signup", controller: :signup, action: :create
@@ -19,6 +14,8 @@ Rails.application.routes.draw do
       resources :books
       resources :items
       resources :todo_lists
+      resources :events
+      resources :users
     end
   end
 

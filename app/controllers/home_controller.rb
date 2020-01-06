@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @books = Book.all
+    @books = current_user.books.all
     render json: @books
   end
 end
