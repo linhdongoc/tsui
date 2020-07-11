@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:latest
+        image: postgres:11
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
         ports:
-        - 5432:5432
+          - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -35,12 +34,19 @@ jobs:
         run: rubocop
       - name: Create database
         run: |
-          bundle exec rails db:create RAILS_ENV=test
-          bundle exec rails db:migrate RAILS_ENV=test
-      - name: Run tests
-        run: |
-          bundle exec rake db:test:prepare
-          bundle exec rspec
+          cp config/database.yml.github-action config/database.yml
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+      - name: Run RSpec
+        run: COVERAGE=true bundle exec rspec
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
       - name: Upload coverage results
         uses: actions/upload-artifact@master
         if: always()
