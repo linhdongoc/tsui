@@ -17,6 +17,7 @@ gem 'jwt_sessions',                                   '~> 2.4', '>= 2.4.3'
 group :development, :test do
   gem 'byebug'
   gem 'rubocop',                                      require: false
+  gem 'rubocop-rails'
   gem 'faker'
   gem 'factory_bot_rails'
 end
@@ -30,9 +31,9 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner',                             '~> 1.6', '>= 1.6.2'
+  gem 'database_cleaner'
   gem 'rspec-rails',                                  '~> 3.7', '>= 3.7.2'
   gem 'shoulda-matchers',                             '~> 3.1', '>= 3.1.2'
-  gem 'rubocop-rspec'
+  gem 'rubocop-rspec',                                require: false
   gem 'rspec-graphql_matchers'
 end
