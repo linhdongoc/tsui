@@ -3,12 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'rails',                                          '~> 6.0', '>= 6.0.3.2'
 gem 'bootsnap',                                       '>= 1.4.2', require: false
 gem 'nori'
 gem 'pg',                                             '>= 0.18', '< 2.0'
 gem 'puma',                                           '~> 3.12'
 gem 'rack-cors',                                      require: 'rack/cors'
-gem 'rails',                                          '~> 6.0'
 gem 'graphql',                                        '~> 1.9'
 gem 'redis',                                          '~> 4.1', '>= 4.1.3'
 gem 'bcrypt',                                         '~> 3.1', '>= 3.1.13'
