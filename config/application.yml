@@ -1,0 +1,18 @@
+default: &default
+  mailers_default_from: no-reply@tsui.me
+  frontend:
+    host: tsui.me
+    protocol: http
+  backend:
+    host: api.tsui.me
+    protocol: http
+    asset: http://api.tsui.me
+  storage_path: <%= Rails.root.join('public', 'system') %>
+  storage_art: 'file' # or aws
+
+test:
+  <<: *default
+  storage_path: <%= Rails.root.join('tmp', 'upload') %>
+
+development:
+  <<: *default

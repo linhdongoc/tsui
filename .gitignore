@@ -12,6 +12,14 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/coverage/
+/public/cache
+/public/stylesheets/compiled
+/public/system/*
+/public/uploads/*
+/public/assets/*
+.~lock*
+.DS_Store
 
 # Ignore uploaded files in development
 /storage/*
@@ -24,4 +32,3 @@
 
 # RubyMine project files
 .idea
-.DS_Store

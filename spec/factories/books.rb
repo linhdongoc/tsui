@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :book do
-    title { Faker::Lorem.word }
+    title { FFaker::Lorem.word }
 
     user
   end
