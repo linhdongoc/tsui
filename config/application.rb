@@ -18,21 +18,24 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 module Tsui
+  class << self
+    attr_accessor :config
+  end
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.time_zone = 'Berlin'
+    config.i18n.default_locale = :de
+    config.i18n.available_locales = %i[de en]
+    config.i18n.fallbacks = [I18n.default_locale]
 
-    # Only loads a smaller set of middleware suitable for API only apps.
-    # Middleware like session, flash, cookies can be added back manually.
-    # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.time_zone = "UTC"
-    config.active_record.default_timezone = :utc
+    config.before_configuration do
+      config = YAML.safe_load(ERB.new(File.read(Rails.root.join('config', 'application.yml'))).result, [], [], true).deep_symbolize_keys[Rails.env.to_sym]
+      Tsui.config = config
+    end
   end
 end

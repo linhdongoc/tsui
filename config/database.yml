@@ -1,14 +1,19 @@
 default: &default
   adapter: postgresql
+  host: localhost
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+  schema_search_path: 'public,shared_extensions'
 
 development:
   <<: *default
   database: tsui_development
+
 test:
   <<: *default
   database: tsui_test
+
 production:
   <<: *default
   database: tsui_production

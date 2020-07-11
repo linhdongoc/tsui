@@ -2,7 +2,7 @@ require 'faker'
 
 5.times do
   TodoList.create(
-      title: "TODO - #{Faker::Lorem.word}"
+      title: "TODO - #{FFaker::Lorem.word}"
   )
 end
 
@@ -11,7 +11,7 @@ lists = TodoList.all
 lists.each do |list|
   5.times do
     list.items.create(
-        name: "Item - #{Faker::Lorem.word}",
+        name: "Item - #{FFaker::Lorem.word}",
         done: [true, false].sample
     )
   end
@@ -19,8 +19,8 @@ end
 
 2.times do
   User.create(
-      name: Faker::Name.unique.name,
-      email: Faker::Internet.email,
+      name: FFaker::Name.unique.name,
+      email: FFaker::Internet.email,
       password: 'Pa55w0rd!',
       password_confirmation: 'Pa55w0rd!'
   )
@@ -31,7 +31,7 @@ users = User.all
 users.each do |user|
   3.times do
     user.books.create(
-        title: Faker::Book.title
+        title: FFaker::Book.title
     )
   end
 end
