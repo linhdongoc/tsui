@@ -6,15 +6,24 @@
 ### System dependencies
 ~~~
 ruby 2.5.1
-rails 6.0
+rails 6.0.3.2
 postgres
 graphql
 redis
 jwt_sessions
+rubocop
+rspec
+simplecov
+devise
 ~~~
 
 ### Rubocop
 ~~~
 rubocop --require rubocop-rails
 rubocop --require rubocop-rspec
+~~~
+
+### Rspec
+~~~
+bundle exec rspec
 ~~~

@@ -16,11 +16,16 @@ gem 'jwt_sessions',                                   '~> 2.4', '>= 2.4.3'
 gem 'active_model_serializers'
 gem 'ffaker'
 gem 'factory_bot_rails'
+gem 'devise'
+gem 'devise-i18n'
+gem 'enum_help'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug'
   gem 'rubocop',                                      require: false
   gem 'rubocop-rails'
+  gem 'letter_opener'
 end
 
 group :development do

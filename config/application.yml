@@ -9,7 +9,8 @@ default: &default
     asset: http://api.tsui.me
   storage_path: <%= Rails.root.join('public', 'system') %>
   storage_art: 'file' # or aws
-
+  devise:
+    pepper: a51326c22cb6aa9e0318cc46a536d6b495bf83af23236524c48ca2e915a4336ad97ee6ee37d04a30fe4457f3b07d6ae5dee4b7018f7d92ac87aae015999292d0
 test:
   <<: *default
   storage_path: <%= Rails.root.join('tmp', 'upload') %>
