@@ -1,4 +1,4 @@
-en:
+de:
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -22,15 +22,9 @@ en:
       odd: odd
       required: required
       taken: taken
-      too_long:
-        one: too_long
-        other: too_long
-      too_short:
-        one: too_short
-        other: too_short
-      wrong_length:
-        one: wrong_length
-        other: wrong_length
+      too_long: too_long
+      too_short: too_short
+      wrong_length: wrong_length
       other_than: other_than
       not_email: not_email
       polling_station_taken: "taken %{email}"

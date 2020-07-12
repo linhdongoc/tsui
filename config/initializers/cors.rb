@@ -1,17 +1,11 @@
-# Be sure to restart your server when you modify this file.
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
 
-# Avoid CORS issues when API is called from the frontend app.
-# Handle Cross-Origin Resource Sharing (CORS) in order to accept cross-origin AJAX requests.
-
-# Read more: https://github.com/cyu/rack-cors
-
- Rails.application.config.middleware.insert_before 0, Rack::Cors do
-   allow do
-     origins 'http://localhost:8080'
-
-     resource '*',
-       headers: :any,
-       credentials: true,
-       methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource '*',
+             headers: :any,
+             credentials: false,
+             expose: %w[x-user-email x-user-token Link Total Per-Page Content-Type Accept],
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
    end
- end
+end

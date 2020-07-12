@@ -1,0 +1,12 @@
+!!! 5
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    = yield
+    %hr
+    %p
+      = t('devise.mailer.layout.dont_answer')
+      %br
+      - if @footer.present?
+        = raw(@footer)

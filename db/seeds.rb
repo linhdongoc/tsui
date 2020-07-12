@@ -1,4 +1,4 @@
-require 'faker'
+require 'ffaker'
 
 5.times do
   TodoList.create(
@@ -19,10 +19,11 @@ end
 
 2.times do
   User.create(
-      name: FFaker::Name.unique.name,
+      first_name: FFaker::Name.first_name,
+      last_name: FFaker::Name.last_name,
       email: FFaker::Internet.email,
-      password: 'Pa55w0rd!',
-      password_confirmation: 'Pa55w0rd!'
+      password: 'Pa55w0rd!123',
+      password_confirmation: 'Pa55w0rd!123'
   )
 end
 
